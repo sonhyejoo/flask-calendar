@@ -5,5 +5,20 @@
     </head>
     <body>
         <h1>Calendar working</h1>
+        <table>
+            <th>Name</th>
+            <th>Start</th>
+            <th>End</th>
+            <tbody>
+                {% for row in rows %}
+                {% print(row[1]) %}
+                    <tr>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2].strftime("%H:%M") }}</td>
+                        <td>{{ row[3].strftime("%H:%M") }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </body>
 </html>
