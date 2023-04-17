@@ -3,20 +3,31 @@
     <head>
         <title>calenderrr</title>
     </head>
+
     <body>
         <h1>Calendar working</h1>
+        <form action="" method="POST">
+            {{ form.csrf_token }}
+            <p>{{ form.name.label }} {{ form.name() }}</p>
+            <p>{{ form.start_date.label }} {{ form.start_date() }}</p>
+            <p>{{ form.start_time.label }} {{ form.start_time() }}</p>
+            <p>{{ form.end_date.label }} {{ form.end_date() }}</p>
+            <p>{{ form.end_time.label }} {{ form.end_time() }}</p>
+            <p>{{ form.description.label }} {{ form.description() }}</p>
+            <p>{{ form.private.label }} {{ form.private() }}</p>
+            <p>{{ form.submit.label }} {{ form.submit() }}</p>
+        </form>
         <table>
             <th>Name</th>
             <th>Start</th>
             <th>End</th>
             <tbody>
-                {% for row in rows %}
-                {% print(row[1]) %}
-                    <tr>
-                        <td>{{ row[1] }}</td>
-                        <td>{{ row[2].strftime("%H:%M") }}</td>
-                        <td>{{ row[3].strftime("%H:%M") }}</td>
-                    </tr>
+                {% for row in rows %} {% print(row[1]) %}
+                <tr>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2].strftime("%H:%M") }}</td>
+                    <td>{{ row[3].strftime("%H:%M") }}</td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>

@@ -8,10 +8,10 @@ flask = "*"
 psycopg2-binary = "*"
 flask-wtf = "*"
 python-dotenv = "*"
-black = "*"
 
 [dev-packages]
 flake8 = "*"
+black = "*"
 
 [requires]
 python_version = "3.9"
