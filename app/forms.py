@@ -7,7 +7,7 @@ from wtforms import (
     BooleanField,
     SubmitField,
 )
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, ValidationError
 from datetime import datetime
 
 
@@ -22,4 +22,7 @@ class AppointmentForm(FlaskForm):
     submit = SubmitField("submit")
 
     def validate_end_date(form, field):
-        return False
+        start = datetime.combine(form.start_date.data, form.start_time.data)
+        end = datetime.combine(form.end_date.data, form.end_time.data)
+        if start >= end:
+            raise ValidationError("Start should be before End")
